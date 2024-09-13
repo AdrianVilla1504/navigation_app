@@ -6,6 +6,15 @@ module.exports = {
     "./presentation/**/*.{js,jsx,ts,tsx}",],
   theme: {
     extend: {
+        colors: {
+          primary: '#49129C',
+          secondary: {
+            DEFAULT: '#B40086',
+            100: '#C51297',
+            200: '#831266',
+          },
+          tertiary: '#EF2967'
+        },
         fontFamily: {
           'work-black' : ['WorkSans-Black', 'sans-serif'],
           'work-ligth' : ['WorkSans-Light', 'sans-serif'],
