@@ -3,7 +3,7 @@
 // eslint-disable-next-line react/react-in-jsx-scope
 
 import './global.css';
-import {Slot, SplashScreen} from 'expo-router';
+import {SplashScreen, Stack} from 'expo-router';
 import {useFonts} from 'expo-font';
 import {useEffect} from 'react';
 
@@ -23,7 +23,7 @@ const RootLayout = () => {
   }, [fontsLoaded, error]);
   if (!fontsLoaded && !error) return null;
 
-  return <Slot />;
+  return <Stack />;
 };
 
 export default RootLayout;
