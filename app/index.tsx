@@ -1,7 +1,17 @@
-import React from 'react';
-
+/* eslint-disable react/react-in-jsx-scope */
+import {Text, View, SafeAreaView} from 'react-native';
 const index = () => {
-  return <div>Hello World</div>;
+  return (
+    <SafeAreaView>
+      <View className="mt-6 mx-2.5">
+        <Text className="text-4xl font-work-bold">Hola mundo</Text>
+        <Text className="text-4xl font-work-medium">Hola mundo</Text>
+        <Text className="text-4xl font-work-light">Hola mundo</Text>
+        <Text className="text-4xl font-work-black">Hola mundo</Text>
+        <Text className="text-4xl font-work-regular">Hola mundo</Text>
+      </View>
+    </SafeAreaView>
+  );
 };
 
 export default index;

@@ -1,36 +1,8 @@
-export default {
-  root: true,
-  extends: [
-    'expo',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-  ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
+/* eslint-disable no-undef */
+module.exports = {
+  extends: ['expo', 'prettier'],
+  plugins: ['prettier'],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'prettier/prettier': 'warn',
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-      },
-    },
-  ],
 };
