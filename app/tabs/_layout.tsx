@@ -6,6 +6,15 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{tabBarActiveTintColor: 'green'}}>
       <Tabs.Screen
+        name="(stack)"
+        options={{
+          title: 'Stack',
+          tabBarIcon: ({color}) => (
+            <Ionicons size={28} name="home" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="home/index"
         options={{
           title: 'Home Screen',
