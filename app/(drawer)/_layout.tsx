@@ -20,6 +20,7 @@ const DrawerLayout = () => {
       <Drawer.Screen
         name="(tabs)" // This is the name of the page and must match the url from root
         options={{
+          headerShown: false,
           drawerLabel: 'Tabs + Stack',
           title: 'Tabs + Stack',
           drawerIcon: ({color, size}) => (
