@@ -3,10 +3,10 @@
 // eslint-disable-next-line react/react-in-jsx-scope
 
 import './global.css';
-import {SplashScreen, /* Stack, */ Slot} from 'expo-router';
+import {SplashScreen, Slot} from 'expo-router';
 import {useFonts} from 'expo-font';
 import {useEffect} from 'react';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 SplashScreen.preventAutoHideAsync();
 
