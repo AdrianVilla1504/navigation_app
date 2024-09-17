@@ -1,0 +1,49 @@
+trigger:
+  branches:
+    include:
+      - main  # Ajusta esto a tu rama de main
+
+pool:
+  vmImage: 'ubuntu-latest'  # Utiliza una imagen de Ubuntu para construir el APK
+
+variables:
+  NODE_VERSION: '20.x'
+  EXPO_CLI_VERSION: 'latest'
+  ENVIRONMENT: 'development'  # Define el entorno de construcción
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSource: 'spec'
+      versionSpec: '20.x'
+
+  - script: |
+      npm install -g expo-cli@$(EXPO_CLI_VERSION)
+      npm install
+    displayName: 'Install dependencies'
+
+  - task: Bash@3
+    displayName: 'Login to Expo'
+    inputs:
+      targetType: 'inline'
+      script: |
+        expo login -u $(EXPO_USERNAME) -p $(EXPO_PASSWORD)
+    env:
+      EXPO_USERNAME: $(EXPO_USERNAME)
+      EXPO_PASSWORD: $(EXPO_PASSWORD)
+
+  - task: Bash@3
+    displayName: 'Build Android APK'
+    inputs:
+      targetType: 'inline'
+      script: |
+        expo build:android --release-channel $(ENVIRONMENT) --non-interactive
+    env:
+      EXPO_TOKEN: $(EXPO_TOKEN)
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'android'
+      ArtifactName: 'android-build'
+      publishLocation: 'Container'
+    displayName: 'Publish EXPO RN navigation_app Android Build Artifact'
